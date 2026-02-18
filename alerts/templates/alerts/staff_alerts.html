@@ -1,0 +1,28 @@
+<h2>Low Stock Alerts</h2>
+
+{% if alerts %}
+<table border="1">
+    <tr>
+        <th>Medicine</th>
+        <th>Facility</th>
+        <th>Alert Type</th>
+        <th>Status</th>
+        <th>Created At</th>
+    </tr>
+
+    {% for alert in alerts %}
+    <tr>
+        <td>{{ alert.stock.medicine_name }}</td>
+        <td>{{ alert.stock.facility.facility_name }}</td>
+        <td>{{ alert.get_alert_type_display }}</td>
+        <td>{{ alert.alert_status }}</td>
+        <td>{{ alert.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No alerts.</p>
+{% endif %}
+
+<br>
+<a href="/users/staff/">Back to Dashboard</a>

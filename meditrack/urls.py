@@ -22,4 +22,10 @@ urlpatterns = [
 
     # Users (login / logout)
     path('users/', include('users.urls')),
+
+    path("inventory/", include("inventory.urls")),
+
+    path("alerts/", include("alerts.urls")),
+
+
 ]

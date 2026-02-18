@@ -1,0 +1,34 @@
+<h2>Daily Consumption Entry</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Select Medicine:</label>
+    <select name="stock">
+        {% for stock in stocks %}
+            <option value="{{ stock.id }}">
+                {{ stock.medicine_name }} (Available: {{ stock.quantity_available }})
+            </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <label>Quantity Consumed:</label>
+    <input type="number" name="quantity" required>
+
+    <br><br>
+
+    <label>Remarks:</label>
+    <input type="text" name="remarks">
+
+    <br><br>
+
+    <button type="submit">Save</button>
+</form>

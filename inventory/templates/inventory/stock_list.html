@@ -1,0 +1,19 @@
+<h2>Medicine Inventory</h2>
+
+<table border="1">
+    <tr>
+        <th>Medicine</th>
+        <th>Category</th>
+        <th>Available</th>
+        <th>Reorder Level</th>
+    </tr>
+
+    {% for stock in stocks %}
+    <tr>
+        <td>{{ stock.medicine_name }}</td>
+        <td>{{ stock.category }}</td>
+        <td>{{ stock.quantity_available }}</td>
+        <td>{{ stock.reorder_level }}</td>
+    </tr>
+    {% endfor %}
+</table>
