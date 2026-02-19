@@ -1,4 +1,9 @@
 <h1>Supervisor Dashboard</h1>
+
 <p>Welcome {{ request.user.username }}</p>
+
+<ul>
+    <li><a href="/requisitions/supervisor/">Review Requisitions</a></li>
+</ul>
 
 <a href="{% url 'logout' %}">Logout</a>

@@ -1,0 +1,25 @@
+<h2>Approved Requisitions</h2>
+
+{% if requisitions %}
+<table border="1">
+    <tr>
+        <th>Facility</th>
+        <th>Medicine</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+
+    {% for req in requisitions %}
+    <tr>
+        <td>{{ req.facility.facility_name }}</td>
+        <td>{{ req.stock.medicine_name }}</td>
+        <td>{{ req.quantity_requested }}</td>
+        <td>
+            <a href="/requisitions/fulfill/{{ req.id }}/">Mark Fulfilled</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No approved requisitions.</p>
+{% endif %}

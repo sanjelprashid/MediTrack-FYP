@@ -1,0 +1,31 @@
+<h2>Pending Requisitions</h2>
+
+{% if requisitions %}
+<table border="1">
+    <tr>
+        <th>Facility</th>
+        <th>Medicine</th>
+        <th>Quantity</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for req in requisitions %}
+    <tr>
+        <td>{{ req.facility.facility_name }}</td>
+        <td>{{ req.stock.medicine_name }}</td>
+        <td>{{ req.quantity_requested }}</td>
+        <td>{{ req.status }}</td>
+        <td>
+            <a href="/requisitions/approve/{{ req.id }}/">Approve</a> |
+            <a href="/requisitions/reject/{{ req.id }}/">Reject</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No pending requisitions.</p>
+{% endif %}
+
+<br>
+<a href="/users/supervisor/">Back to Dashboard</a>

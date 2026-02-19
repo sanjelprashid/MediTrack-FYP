@@ -15,7 +15,14 @@
         <td>{{ alert.stock.medicine_name }}</td>
         <td>{{ alert.stock.facility.facility_name }}</td>
         <td>{{ alert.get_alert_type_display }}</td>
-        <td>{{ alert.alert_status }}</td>
+
+        <td>{% if alert.alert_status == "PENDING" %}
+        🔴 Pending
+        {% else %}
+        🟢 Resolved
+        {% endif %}
+        </td>
+        
         <td>{{ alert.created_at }}</td>
     </tr>
     {% endfor %}
