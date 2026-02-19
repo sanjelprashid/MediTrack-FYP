@@ -27,5 +27,6 @@ urlpatterns = [
 
     path("alerts/", include("alerts.urls")),
 
+    path("requisitions/", include("requisitions.urls")),
 
 ]
